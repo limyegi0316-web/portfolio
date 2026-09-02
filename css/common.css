@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+body {
+    font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  
+}
+
+/* Thin: font-weight: 100;
+Extra Light: font-weight: 200;
+Light: font-weight: 300;
+Regular: font-weight: 400;
+Medium: font-weight: 500;
+Semi Bold: font-weight: 600;
+Bold: font-weight: 700;
+Extra Bold: font-weight: 800; (또는 900;) */
+
+/* 헤더 전체 스타일 (피그마의 둥근 박스 형태 구현) */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1464px; /* 레이아웃 최대 크기에 맞게 조절 가능 */
+    height: 79px;
+    margin: 44px auto 74px auto;
+    padding: 0 26px 0 55px;
+    background-color: #ffffff;
+    border: 1px solid #E5E3E3; /* 연한 테두리 색상 */
+    border-radius: 50px; /* 둥근 모서리 */
+}
+
+/* 로고 (im ye ji) */
+header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #000000;
+   
+}
+
+/* 네비게이션 메뉴 가로 정렬 */
+header nav ul {
+    display: flex;
+    gap: 41px; /* 메뉴 사이 간격 */
+}
+
+header nav ul li {
+    font-size: 20px;
+    font-weight: 500;
+    color: #707070;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+header nav ul li:hover {
+    color: #000000;
+}
+
+/* CONTACT 버튼 스타일 */
+.btn-con a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000000;
+    border: 1px solid #000000; /* 테두리 있는 버튼 */
+    border-radius: 30px; /* 둥근 버튼 */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* CONTACT 버튼 호버 효과 */
+.btn-con a:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* 비주얼 */
+.visual {
+    position: relative;
+    min-height: 866px;
+    overflow: hidden;
+    background: url('../img/Visual.jpg') center top / cover no-repeat;
+}
+
+/* 1. 가로로 길게 깔리는 배경 선 */
+.visual .line {
+    position: absolute;
+    width: 896px;
+    height: 0px;
+    left: 0px;
+    top: 368px;
+    border: 1px solid #E7E7E7;
+}
+
+.hero-text {
+    position: absolute;
+    top: 171px;
+    left: 228px;
+    z-index: 1;
+}
+
+.sub-title {
+    margin-bottom: 3px;
+    font-size: 24px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.56);
+}
+
+.hero-text h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400; /* Regular는 400입니다 */
+    font-size: 128px;
+}
+
+.hero-text h1:nth-of-type(2) {
+    color: #f6a39c;
+   
+}
+
+/* 2. Im Yeji 아래에 들어가는 작은 세로선 */
+.visual .small-line {
+    display: block;
+    width: 2px;
+    height: 49px;
+    background-color: rgba(0, 0, 0, 0.31);
+    margin-bottom: 23px; /* 세로선과 설명글(description) 사이 간격 */
+}
+
+
+.description {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 2%;
+    color: rgba(0, 0, 0, 0.56);
+}
+
+.visual-orb {
+    position: absolute;
+    top: 205px;
+    left: 61vw;
+    width: 361px;
+    height: 361px;
+    object-fit: contain;
+
+/* 애니메이션 적용 */
+    animation: bounceOrb 2s ease-in-out infinite;
+}
+
+/* 튀는 모션 키프레임 정의 */
+@keyframes bounceOrb {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px); /* 위로 50px만큼 떠오름 */
+    }
+}
+
+.visual-scroll {
+    position: absolute;
+    bottom: 53px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transform: translateX(-50%);
+    font-size: 15px;
+    color:#bbbbbb;
+    
+}
+
+.visual-scroll i {
+    display: block;
+    width: 1px;
+    height: 40px; /* 기존보다 길이를 살짝 늘려 시각적 균형을 맞춤 (선택사항) */
+    background: linear-gradient(49deg, #D6D6D6 0%, #707070 100%);
+    opacity: 0.8; /* 전체적인 투명도 조절이 필요할 때 사용 */
+}
+
+/* 자기소개 */
+
+.about {
+    width: 100%;
+    max-width: 1920px;
+    position: relative;
+    margin: 57px auto 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.about .inner {
+    width: 100%;
+    margin-left: 229px; /* ABOUT 타이틀 라인 왼쪽 여백 229px */
+    margin-bottom: 398px;
+    position: relative;
+}
+
+
+/* 섹션 타이틀 (ABOUT) */
+.about h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #F6A39C;
+    line-height: 1.06;
+   
+    margin-left: 26px;
+    position: relative;
+    display: inline-block;
+}
+
+/* 타이틀 왼쪽에 짧은 선 넣기 */
+.about h2::before {
+    content: "";
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    background-color: #F9C6C1;
+    vertical-align: middle;
+    margin-right: 17px;
+}
+
+/* 상단 영역 (프로필 사진 + 텍스트) */
+.about-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 43px;
+    position: relative;
+    margin-left: 128px; /* 전체 357px - 이너여백 229px = 128px 추가 이동 */
+
+}
+
+/* 프로필 이미지 스타일 */
+.about-top img {
+    margin-top: 20px;
+    margin-bottom: 53px;
+    width: 380px;
+    height: 526px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* 소개 텍스트 영역 */
+.about-text {
+    flex: 1;
+    padding-top: 250px;
+   
+}
+
+.about-text h3 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.06;
+    margin-bottom: 29px;
+}
+
+.about-text p {
+    font-size: 20px;
+    line-height: 1.86;
+    color: #000000;
+    margin-bottom: 28px;
+}
+
+/* 이력서 다운로드 버튼 */
+.btn-download {
+    width: 169px;
+    height: 49px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F6A39C;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.btn-download:hover {
+    background-color: #e67d6f;
+    transform: translateY(-2px);
+}
+
+
+/* 하단 영역 (PROFILE & TOOLS & SKILLS) */
+.about-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 49px;
+    position: relative;
+    
+}
+
+ddddd여기;까지~~
+.profile-box {
+    position: relative;
+    margin-left: 427px; /* 프로필 영역 전체를 왼쪽에서 427px 띄움 */
+}
+.pro-title {
+
+}
+
+.profile-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start; /* 양 끝 정렬 해제 */
+    gap: 216px; /* 피그마에서 쓰시던 두 열 사이 간격 적용 */
+    padding-top: 43px;
+}
+
+.profile-col {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px; /* 항목 간 세로 간격 */
+}
+
+.profile-list li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.profile-list .dt {
+    width: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #5d5d5d;
+    flex-shrink: 0;
+}
+
+.profile-list .dd {
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+}
+
+/* TOOLS & SKILLS 스타일 */
+.skill-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-top: 32px;
+}
+
+.skill-tags li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border: 1px solid #F6A39C;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* 태그 앞의 작은 점 */
+.skill-tags li::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background-color: #F6A39C;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.skill-tags li:hover {
+    background-color: #FEE5E1;
+    border-color: #e67d6f;
+}
