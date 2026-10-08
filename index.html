@@ -169,5 +169,32 @@
 
 
     </main>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('nav li').click(function(event){
+                event.preventDefault();
+
+                let idx = $(this).index();
+                let section = $('section').eq(idx+1);
+                let secDistance = section.offset().top;
+                
+                $('html, body').stop(true).animate({scrollTop: secDistance});
+                
+            });
+
+            $('header h2').click(function(event){
+                event.preventDefault();
+                $('html, body').stop(true).animate({scrollTop: 0});
+            });
+
+            $('.btn-con').click(function(){
+                event.preventDefault(event);
+                let conOffset = $('.contact').offset().top;
+                $('html, body').stop(true).animate({scrollTop: conOffset});
+            })
+
+        });
+    </script>
 </body>
 </html>
