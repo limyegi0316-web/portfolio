@@ -33,7 +33,7 @@ header {
     z-index: 1000;
     width: 100%;
     height: 123px;
-    padding: 20px max(26px, calc(50% - 706px)) 20px max(55px, calc(50% - 677px));
+    padding: 20px max(26px, calc(50% - 706px)) 24px max(55px, calc(50% - 677px));
     background-color: #ffffff;
 }
 
@@ -58,8 +58,10 @@ header > * {
 }
 
 header nav {
-    flex: 1;
-    min-width: 0;
+    position: absolute;
+    top: calc(50% - 2px);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* 로고 (im ye ji) */
@@ -73,6 +75,7 @@ header h2 {
 /* 네비게이션 메뉴 가로 정렬 */
 header nav ul {
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 41px; /* 메뉴 사이 간격 */
 }
@@ -122,6 +125,21 @@ header nav ul li:hover {
     background: url('../img/Visual.jpg') center top / cover no-repeat;
 }
 
+.visual::before {
+    content: "";
+    position: absolute;
+    top: 150px;
+    right: 9%;
+    width: 460px;
+    height: 460px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(246, 163, 156, 0.2), rgba(246, 163, 156, 0) 70%);
+    filter: blur(22px);
+    opacity: 0;
+    pointer-events: none;
+    animation: glowReveal 1.5s 1s ease-out forwards, glowBreathe 8s 2.5s ease-in-out infinite;
+}
+
 /* 1. 가로로 길게 깔리는 배경 선 */
 .visual .line {
     position: absolute;
@@ -130,6 +148,9 @@ header nav ul li:hover {
     left: 0px;
     top: 368px;
     border: 1px solid #E7E7E7;
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: lineReveal 1.1s 0.9s ease-out forwards;
 }
 
 .hero-text {
@@ -137,6 +158,8 @@ header nav ul li:hover {
     top: 171px;
     left: 228px;
     z-index: 1;
+    transform: translate3d(var(--pointer-x, 0px), var(--scroll-shift, 0px), 0);
+    transition: transform 0.25s ease-out;
 }
 
 .sub-title {
@@ -144,17 +167,19 @@ header nav ul li:hover {
     font-size: 24px;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.56);
+    animation: heroRise 0.8s 0.15s both cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .hero-text h1 {
     font-family: 'Fraunces', serif;
     font-weight: 400; /* Regular는 400입니다 */
     font-size: 128px;
+    animation: heroRise 0.9s 0.32s both cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .hero-text h1:nth-of-type(2) {
     color: #f6a39c;
-   
+    animation-delay: 0.48s;
 }
 
 /* 2. Im Yeji 아래에 들어가는 작은 세로선 */
@@ -164,6 +189,9 @@ header nav ul li:hover {
     height: 49px;
     background-color: rgba(0, 0, 0, 0.31);
     margin-bottom: 23px; /* 세로선과 설명글(description) 사이 간격 */
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: lineRevealVertical 0.5s 0.68s ease-out forwards;
 }
 
 
@@ -172,6 +200,7 @@ header nav ul li:hover {
     line-height: 1.5;
     letter-spacing: 2%;
     color: rgba(0, 0, 0, 0.56);
+    animation: heroRise 0.8s 0.76s both cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .visual-orb {
@@ -181,18 +210,136 @@ header nav ul li:hover {
     width: 361px;
     height: 361px;
     object-fit: contain;
-
-/* 애니메이션 적용 */
-    animation: bounceOrb 2s ease-in-out infinite;
+    z-index: 1;
+    transform: translate3d(var(--pointer-x, 0px), calc(var(--pointer-y, 0px) + var(--scroll-shift, 0px)), 0);
+    transition: transform 0.35s ease-out;
+    translate: 0 0;
+    scale: 1.08;
+    opacity: 0;
+    animation: orbReveal 1.3s 1.12s cubic-bezier(0.2, 0.7, 0.2, 1) forwards, orbBounce 2s 2.42s ease-in-out infinite;
 }
 
-/* 튀는 모션 키프레임 정의 */
-@keyframes bounceOrb {
+.visual-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.visual-particles span {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border: 1px solid rgba(215, 127, 120, 0.55);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleReveal 0.8s ease-out forwards, particleDrift 5s ease-in-out infinite;
+}
+
+.visual-particles span:nth-child(1) {
+    top: 29%;
+    left: 57%;
+    animation-delay: 1.15s, 1.95s;
+}
+
+.visual-particles span:nth-child(2) {
+    top: 43%;
+    left: 82%;
+    width: 7px;
+    height: 7px;
+    animation-delay: 1.35s, 2.15s;
+}
+
+.visual-particles span:nth-child(3) {
+    top: 68%;
+    left: 71%;
+    width: 4px;
+    height: 4px;
+    animation-delay: 1.55s, 2.35s;
+}
+
+.visual-particles span:nth-child(4) {
+    top: 24%;
+    left: 76%;
+    width: 3px;
+    height: 3px;
+    animation-delay: 1.75s, 2.55s;
+}
+
+.visual-particles span:nth-child(5) {
+    top: 74%;
+    left: 88%;
+    width: 6px;
+    height: 6px;
+    animation-delay: 1.95s, 2.75s;
+}
+
+@keyframes heroRise {
+    from {
+        opacity: 0;
+        translate: 0 22px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes lineReveal {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes lineRevealVertical {
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes orbReveal {
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes orbBounce {
     0%, 100% {
-        transform: translateY(0);
+        translate: 0 0;
     }
     50% {
-        transform: translateY(-50px); /* 위로 50px만큼 떠오름 */
+        translate: 0 -50px;
+    }
+}
+
+@keyframes glowReveal {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes glowBreathe {
+    0%, 100% {
+        transform: scale(0.96);
+    }
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+@keyframes particleReveal {
+    to {
+        opacity: 0.75;
+    }
+}
+
+@keyframes particleDrift {
+    0%, 100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 -9px;
     }
 }
 
@@ -207,7 +354,7 @@ header nav ul li:hover {
     transform: translateX(-50%);
     font-size: 15px;
     color:#bbbbbb;
-    
+    animation: heroRise 0.8s 1.3s both cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .visual-scroll i {
@@ -216,6 +363,121 @@ header nav ul li:hover {
     height: 40px; /* 기존보다 길이를 살짝 늘려 시각적 균형을 맞춤 (선택사항) */
     background: linear-gradient(49deg, #D6D6D6 0%, #707070 100%);
     opacity: 0.8; /* 전체적인 투명도 조절이 필요할 때 사용 */
+}
+
+@media (max-width: 900px) {
+    .hero-text {
+        left: 8vw;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(76px, 13vw, 112px);
+    }
+
+    .visual-orb {
+        left: auto;
+        right: 5vw;
+        width: min(38vw, 340px);
+        height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .visual {
+        min-height: 760px;
+        background-position: 56% top;
+    }
+
+    .visual::before {
+        top: 340px;
+        right: -20%;
+        width: 350px;
+        height: 350px;
+    }
+
+    .visual .line {
+        top: 330px;
+        width: 75vw;
+    }
+
+    .hero-text {
+        top: 105px;
+        left: 7vw;
+        right: 7vw;
+    }
+
+    .sub-title {
+        font-size: 16px;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(64px, 16vw, 94px);
+    }
+
+    .visual .small-line {
+        height: 32px;
+        margin-bottom: 16px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .visual-orb {
+        top: 365px;
+        right: 5vw;
+        width: min(64vw, 310px);
+    }
+
+    .visual-particles span:nth-child(1) {
+        top: 53%;
+        left: 22%;
+    }
+
+    .visual-particles span:nth-child(2) {
+        top: 57%;
+        left: 86%;
+    }
+
+    .visual-particles span:nth-child(3) {
+        top: 82%;
+        left: 38%;
+    }
+
+    .visual-particles span:nth-child(4) {
+        top: 52%;
+        left: 73%;
+    }
+
+    .visual-particles span:nth-child(5) {
+        top: 84%;
+        left: 82%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .visual *,
+    .visual::before {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .visual .line,
+    .visual .small-line {
+        transform: none;
+    }
+
+    .visual-orb {
+        opacity: 1;
+    }
+
+    .visual-orb {
+        scale: 1;
+    }
+
+    .visual-particles {
+        display: none;
+    }
 }
 
 /* 자기소개 */
@@ -601,19 +863,132 @@ header nav ul li:hover {
     padding-bottom: 154px;
 }
 
+.projects > .container {
+    width: min(1464px, 91%);
+}
+
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, 460px);
-    gap: 39px;
+    gap: clamp(23px, 2.5vw, 41px);
     margin-top: 92px;
 }
 
 .project-card {
     display: block;
     width: 460px;
-    height: 460px;
+    height: 340px;
     background-color: #d9d9d9;
-    
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.project-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-modal {
+    position: fixed;
+    inset: 0;
+    width: min(90vw, 1200px);
+    max-width: none;
+    max-height: 90vh;
+    margin: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 14px;
+    background: #111111;
+    overflow: auto;
+}
+
+.project-modal::backdrop {
+    background: rgb(0 0 0 / 75%);
+}
+
+.project-modal-gallery {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+}
+
+.project-modal-gallery img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+}
+
+.project-modal-close {
+    position: sticky;
+    top: 8px;
+    float: right;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin: 12px 16px -56px 0;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #333333;
+    box-shadow: 0 3px 12px rgb(0 0 0 / 18%);
+    font-size: 0;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-modal-close::before,
+.project-modal-close::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    border-radius: 1px;
+    background: currentColor;
+}
+
+.project-modal-close::before {
+    transform: rotate(45deg);
+}
+
+.project-modal-close::after {
+    transform: rotate(-45deg);
+}
+
+.project-modal-close:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 16px rgb(0 0 0 / 24%);
+}
+
+@media (max-width: 1500px) {
+    .project-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .project-card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 23 / 17;
+    }
+}
+
+@media (max-width: 900px) {
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 
