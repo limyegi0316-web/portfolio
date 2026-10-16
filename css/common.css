@@ -539,7 +539,12 @@ header nav ul li:hover {
     align-items: flex-start;
     gap: 43px;
     position: relative;
-    
+}
+
+.about-profile {
+    width: 380px;
+    flex-shrink: 0;
+    margin-left: 127px;
 }
 
 /* 프로필 이미지 스타일 */
@@ -550,7 +555,6 @@ header nav ul li:hover {
     height: 526px;
     object-fit: cover;
     flex-shrink: 0;
-    margin-left: 127px;
 }
 
 /* 소개 텍스트 영역 */
@@ -830,7 +834,15 @@ header nav ul li:hover {
     align-items: center;
     justify-content: center;
     border-right: 1px solid #f6a39c;
-    
+    border-radius: 18px;
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.direction-item:hover {
+    z-index: 1;
+    background-color: #fff0ef;
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgb(246 163 156 / 16%);
 }
 
 .direction-item:last-child {
@@ -841,6 +853,11 @@ header nav ul li:hover {
     width: 49px;
     height: 49px;
     margin-bottom: 17px;
+    transition: transform 0.25s ease;
+}
+
+.direction-item:hover img {
+    transform: scale(1.12);
 }
 
 .direction-item h4 {
@@ -863,6 +880,17 @@ header nav ul li:hover {
     padding-bottom: 154px;
 }
 
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(32px) scale(0.98);
+    transition: opacity 0.6s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.15);
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
 .projects > .container {
     width: min(1464px, 91%);
 }
@@ -875,6 +903,7 @@ header nav ul li:hover {
 }
 
 .project-card {
+    position: relative;
     display: block;
     width: 460px;
     height: 340px;
@@ -883,11 +912,65 @@ header nav ul li:hover {
     overflow: hidden;
 }
 
+.project-card-placeholder {
+    background-color: #f1f1f1;
+    border: 1px dashed #d9d9d9;
+}
+
+.project-card-placeholder::before,
+.project-card-placeholder::after {
+    display: none;
+}
+
+.project-card::before,
+.project-card::after {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.project-card::before {
+    content: "";
+    inset: 0;
+    background: rgb(45 45 45 / 55%);
+}
+
+.project-card::after {
+    content: "VIEW";
+    top: 50%;
+    left: 50%;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    transform: translate(-50%, -50%);
+}
+
+.project-card:hover::before,
+.project-card:hover::after,
+.project-card:focus-visible::before,
+.project-card:focus-visible::after {
+    opacity: 1;
+}
+
+.project-card:focus-visible {
+    outline: 3px solid #555555;
+    outline-offset: 4px;
+}
+
 .project-card img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover img,
+.project-card:focus-visible img {
+    transform: scale(1.06);
 }
 
 .project-modal {
@@ -967,6 +1050,20 @@ header nav ul li:hover {
     box-shadow: 0 5px 16px rgb(0 0 0 / 24%);
 }
 
+@media (max-width: 600px) {
+    .project-modal {
+        width: calc(100vw - 24px);
+        max-height: calc(100dvh - 24px);
+        border-radius: 10px;
+    }
+
+    .project-modal-close {
+        width: 40px;
+        height: 40px;
+        margin: 10px 10px -50px 0;
+    }
+}
+
 @media (max-width: 1500px) {
     .project-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -998,6 +1095,14 @@ header nav ul li:hover {
     overflow: hidden;
     background-color: #4c4b4b;
     color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 .contact-inner {
@@ -1089,4 +1194,558 @@ header nav ul li:hover {
     font-size: 20px;
     font-weight: 500;
     line-height: 1.06;
+}
+
+@media (max-width: 900px) {
+    html {
+        scroll-padding-top: 96px;
+    }
+
+    header {
+        height: 96px;
+        padding: 12px 32px;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 20px;
+    }
+
+    header::before {
+        top: 10px;
+        height: 76px;
+    }
+
+    header nav {
+        position: static;
+        transform: none;
+    }
+
+    header nav ul {
+        gap: clamp(12px, 3vw, 28px);
+    }
+
+    header nav ul li,
+    .btn-con a {
+        font-size: 16px;
+    }
+
+    .container,
+    .projects > .container,
+    .direction-inner,
+    .contact-inner,
+    .contact-footer.container {
+        width: min(calc(100% - 64px), 720px);
+    }
+
+    .about .inner {
+        width: min(calc(100% - 64px), 720px);
+        margin: 0 auto;
+    }
+
+    .about-top {
+        gap: 28px;
+    }
+
+    .about-profile {
+        width: min(38%, 300px);
+        margin-left: 0;
+    }
+
+    .about-top img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 380 / 526;
+        margin: 20px 0 40px;
+    }
+
+    .about-text {
+        padding-top: clamp(80px, 20vw, 180px);
+    }
+
+    .about-text h3 {
+        font-size: clamp(20px, 2.8vw, 24px);
+    }
+
+    .about-text p {
+        font-size: 16px;
+    }
+
+    .pro-title,
+    .skills-title {
+        margin-left: 0;
+    }
+
+    .pro-title::after,
+    .skills-title::after {
+        flex: 1;
+        width: auto;
+    }
+
+    .profile-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 24px;
+        margin-left: 0;
+    }
+
+    .profile-list li {
+        min-width: 0;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    .profile-list li .dt {
+        margin-right: 0;
+    }
+
+    .profile-list .dd {
+        overflow-wrap: anywhere;
+    }
+
+    .skill-tags {
+        width: auto;
+        margin-left: 0;
+        padding-top: 20px;
+    }
+
+    .direction-list {
+        width: 100%;
+    }
+
+    .direction-item p {
+        padding: 0 12px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .contact {
+        height: auto;
+        min-height: 758px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    html {
+        scroll-padding-top: 80px;
+    }
+
+    header {
+        height: 80px;
+        min-height: 0;
+        padding: 10px 18px;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 8px;
+    }
+
+    header::before {
+        top: 8px;
+        width: calc(100% - 24px);
+        height: 64px;
+    }
+
+    header h2 {
+        font-size: clamp(16px, 4vw, 22px);
+    }
+
+    header nav {
+        justify-self: center;
+        min-width: 0;
+    }
+
+    header nav ul {
+        gap: clamp(7px, 2vw, 14px);
+    }
+
+    header nav ul li {
+        font-size: clamp(10px, 2.4vw, 13px);
+        white-space: nowrap;
+    }
+
+    header .btn-con {
+        grid-column: 3;
+    }
+
+    .btn-con a {
+        padding: 7px 9px;
+        font-size: clamp(10px, 2.3vw, 12px);
+    }
+
+    .container,
+    .projects > .container,
+    .direction-inner,
+    .contact-inner,
+    .contact-footer.container {
+        width: calc(100% - 40px);
+    }
+
+    .about {
+        padding-top: 76px;
+    }
+
+    .about .inner {
+        width: calc(100% - 40px);
+        max-width: 480px;
+        margin: 0 auto;
+        padding-bottom: 72px;
+    }
+
+    .about-top {
+        display: grid;
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .about-profile {
+        display: contents;
+    }
+
+    .about-top img {
+        grid-row: 1;
+        justify-self: center;
+        width: min(72%, 300px);
+        height: auto;
+        aspect-ratio: 380 / 526;
+        margin: 26px auto 0;
+    }
+
+    .about-text {
+        display: contents;
+    }
+
+    .about-text h3 {
+        grid-row: 3;
+        margin-top: 28px;
+        font-size: 20px;
+        line-height: 1.4;
+        margin-bottom: 16px;
+    }
+
+    .about-text p {
+        grid-row: 4;
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 0;
+    }
+
+    .about-bottom {
+        margin-top: 28px;
+    }
+
+    .about-text .btn-download {
+        grid-row: 2;
+        justify-self: center;
+        width: auto;
+        min-height: 36px;
+        margin-top: 14px;
+        padding: 0 16px;
+        font-size: 12px;
+    }
+
+    .about-text br {
+        display: none;
+    }
+
+    .about-bottom {
+        gap: 32px;
+    }
+
+    .pro-title,
+    .skills-title {
+        font-size: 16px;
+    }
+
+    .profile-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-top: 24px;
+        gap: 0;
+    }
+
+    .profile-list li {
+        display: grid;
+        grid-template-columns: 96px minmax(0, 1fr);
+        align-items: start;
+        margin-bottom: 18px;
+        font-size: 14px;
+    }
+
+    .profile-list .dt,
+    .profile-list .dd {
+        font-size: 14px;
+    }
+
+    .profile-list .dt {
+        min-width: 0;
+    }
+
+    .skill-tags {
+        gap: 8px;
+        padding-top: 16px;
+    }
+
+    .skill-tags li {
+        padding: 8px 13px;
+        font-size: 13px;
+    }
+
+    .direction {
+        padding-bottom: 64px;
+    }
+
+    .direction-inner {
+        padding-top: 76px;
+    }
+
+    .direction h3 {
+        margin-top: 36px;
+        font-size: 26px;
+    }
+
+    .direction-description {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .direction-list {
+        height: auto;
+        margin-top: 36px;
+        grid-template-columns: 1fr;
+    }
+
+    .direction-item {
+        min-height: 240px;
+        padding: 24px 12px;
+        border-right: 0;
+        border-bottom: 1px solid #f6a39c;
+    }
+
+    .direction-item:last-child {
+        border-bottom: 0;
+    }
+
+    .direction-item h4 {
+        font-size: 20px;
+    }
+
+    .direction-item p {
+        margin-top: 14px;
+        font-size: 15px;
+    }
+
+    .direction-item p br {
+        display: none;
+    }
+
+    .projects {
+        padding-top: 76px;
+        padding-bottom: 80px;
+    }
+
+    .project-grid {
+        gap: 18px;
+        margin-top: 36px;
+    }
+
+    .project-card::after {
+        font-size: 18px;
+    }
+
+    .contact {
+        min-height: 0;
+        height: auto;
+    }
+
+    .contact-inner {
+        height: auto;
+        padding-top: 64px;
+        padding-bottom: 52px;
+    }
+
+    .contact h3 {
+        margin-top: 38px;
+        font-size: clamp(22px, 5.8vw, 25px);
+    }
+
+    .contact-description {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .contact-label {
+        margin-top: 44px;
+        font-size: 15px;
+    }
+
+    .contact-phone {
+        margin-top: 16px;
+        font-size: clamp(22px, 6vw, 26px);
+    }
+
+    .contact-chat {
+        margin-top: 26px;
+        font-size: 18px;
+    }
+
+    .contact-url {
+        max-width: calc(100% - 52px);
+        margin-top: 14px;
+        overflow-wrap: anywhere;
+        font-size: clamp(14px, 3.8vw, 17px);
+    }
+
+    .instagram {
+        right: 0;
+        bottom: 46px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .contact-footer.container {
+        height: auto;
+        min-height: 56px;
+        gap: 12px;
+        font-size: clamp(10px, 2.8vw, 12px);
+    }
+}
+
+@media (max-width: 380px) {
+    html {
+        scroll-padding-top: 100px;
+    }
+
+    header {
+        height: 100px;
+        padding: 10px 18px;
+        grid-template-columns: 1fr auto;
+        gap: 6px 10px;
+    }
+
+    header::before {
+        height: 84px;
+    }
+
+    header nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    header nav ul {
+        gap: clamp(16px, 7vw, 28px);
+    }
+
+    header nav ul li {
+        font-size: 12px;
+    }
+
+    header .btn-con {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .btn-con a {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .about {
+        padding: 72px 0 0;
+    }
+
+    .about .inner {
+        width: min(calc(100% - 64px), 720px);
+        padding-bottom: 72px;
+    }
+
+    .about .inner > h2 {
+        margin-bottom: 20px;
+    }
+
+    .about-top {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        align-items: start;
+        column-gap: 32px;
+    }
+
+    .about-profile {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+        margin: 0;
+    }
+
+    .about-top img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 380 / 526;
+        margin: 0;
+    }
+
+    .about-text {
+        grid-column: 2;
+        grid-row: 1;
+        padding-top: clamp(40px, 8vw, 72px);
+    }
+
+    .about-text h3 {
+        margin: 0;
+        font-size: clamp(18px, 2.5vw, 22px);
+        line-height: 1.35;
+    }
+
+    .about-text p {
+        margin: 14px 0 0;
+        font-size: clamp(14px, 1.7vw, 16px);
+        line-height: 1.7;
+    }
+
+    .about-text .btn-download {
+        margin-top: 16px;
+        width: auto;
+        height: 42px;
+        padding: 0 20px;
+        font-size: 14px;
+    }
+
+    .about-bottom {
+        width: 100%;
+        margin-top: 38px;
+    }
+
+    .pro-title,
+    .skills-title {
+        margin-left: 0;
+    }
+
+    .pro-title::after,
+    .skills-title::after {
+        flex: 1;
+        width: auto;
+    }
+
+    .profile-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(4, auto);
+        grid-auto-flow: column;
+        gap: 14px 32px;
+        padding-top: 32px;
+    }
+
+    .profile-list li {
+        display: grid;
+        grid-template-columns: minmax(90px, 110px) minmax(0, 1fr);
+        align-items: start;
+        gap: 0;
+        margin: 0;
+    }
+
+    .profile-list li .dt {
+        margin-right: 0;
+    }
+
+    .profile-list .dd {
+        min-width: 0;
+    }
 }
