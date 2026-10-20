@@ -163,7 +163,10 @@
         </section>
 
         <dialog class="project-modal" aria-label="프로젝트 이미지 미리보기">
-            <button class="project-modal-close" type="button" aria-label="닫기">&times;</button>
+            <div class="project-modal-actions">
+                <a class="project-modal-site" hidden></a>
+                <button class="project-modal-close" type="button" aria-label="닫기">&times;</button>
+            </div>
             <div class="project-modal-gallery"></div>
         </dialog>
 
@@ -223,6 +226,7 @@
             const modal = document.querySelector('.project-modal');
             const modalGallery = modal.querySelector('.project-modal-gallery');
             const closeButton = modal.querySelector('.project-modal-close');
+            const siteLink = modal.querySelector('.project-modal-site');
             const projectOneImages = [
                 './img/상세페이지/mega1.jpg',
                 './img/상세페이지/mega2.jpg'
@@ -291,6 +295,12 @@
                 projectElevenImages,
                 projectOneImages
             ];
+            const projectSiteLinks = {
+                0: { label: '사이트 보기', url: 'https://www.tamburins.com/' },
+                1: { label: '사이트 보기', url: '' },
+                2: { label: '피그마 보기', url: '' },
+                9: { label: '쇼핑몰 보기', url: '' }
+            };
 
             projectCards.forEach((card, index) => {
                 card.addEventListener('click', (event) => {
@@ -298,6 +308,24 @@
                     const images = projectDetails[index];
                     if (!images) return;
 
+                    const site = projectSiteLinks[index];
+                    siteLink.hidden = !site;
+                    if (site) {
+                        siteLink.textContent = site.label;
+                        if (site.url) {
+                            siteLink.href = site.url;
+                            siteLink.target = '_blank';
+                            siteLink.rel = 'noopener noreferrer';
+                            siteLink.removeAttribute('aria-disabled');
+                            siteLink.removeAttribute('title');
+                        } else {
+                            siteLink.removeAttribute('href');
+                            siteLink.removeAttribute('target');
+                            siteLink.removeAttribute('rel');
+                            siteLink.setAttribute('aria-disabled', 'true');
+                            siteLink.title = '주소를 추가하면 이동할 수 있어요.';
+                        }
+                    }
                     modalGallery.replaceChildren();
                     images.forEach((src, imageIndex) => {
                         const image = document.createElement('img');
