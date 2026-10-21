@@ -1,0 +1,22 @@
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    }
+            
+ul,
+li {
+    list-style: none;
+    }
+a{
+    text-decoration: none; /*글자밑줄없애기*/
+    color:inherit;
+    }
+img{
+	max-width:100%;
+	vertical-align:top;
+	}
+button {
+    all: unset; /* 버튼 박스 테두리 배경 다 없애고 텍스트만 남겨둔 초기화설정 항상 	첫번째에 작성하기 */
+    cursor:pointer; /* 클릭이 가능한 마우스 포인터임*/
+    } 

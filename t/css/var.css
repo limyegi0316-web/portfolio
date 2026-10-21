@@ -1,0 +1,21 @@
+:root {
+    --color-black:#000000;
+    --color-black-80:rgba(0,0,0,0.8);
+    --color-black-60:rgba(0,0,0,0.6);
+    --color-black-50:rgba(0,0,0,0.5);
+    --color-black-40:rgba(0,0,0,0.4);
+    --color-black-30:rgba(0,0,0,0.3);
+    
+    --color-White:#FFFFFF;
+    --color-White-90:rgba(255, 255, 255, 0.9);
+    --color-White-80:rgba(255, 255, 255, 0.8);
+    --color-White-70:rgba(255, 255, 255, 0.7);
+    --color-White-60:rgba(255, 255, 255, 0.6);
+    --color-White-40:rgba(255, 255, 255, 0.4);
+    --color-White-15:rgba(255, 255, 255, 0.15);
+    --color-White-5:rgba(255, 255, 255, 0.05);
+
+    --color-gray1:#9A9A9A;
+    --color-primary:#4A6645;
+
+}

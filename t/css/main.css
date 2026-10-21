@@ -1,0 +1,599 @@
+/* 2. 메인 비주얼 영역 (화면 꽉 채우기) */
+.visual {
+    position: relative;
+    width: 100%;
+    height: 1004px;
+    background: url('../img/main/summertales.jpg') no-repeat center top / cover; /* 배경 이미지 경로 연결 */
+    display: flex;
+    align-items: flex-end; /* 아래쪽 정렬 */
+    padding: 0 0 96px 276px; /* 좌측 하단 여백 */
+}
+
+/* 텍스트 영역 및 하단 스크롤 (오버레이 위로 오도록 z-index 설정) */
+.text-area, .scroll {
+    position: relative;
+    z-index: 2;
+}
+/* 텍스트 스타일링 */
+.text-area .sub-title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 16.5px;
+    letter-spacing: 3.3px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 14px;
+}
+
+.text-area .visual-title {
+    font-weight: 300;
+    font-size: 72px;
+    line-height: 90px;
+    letter-spacing: -1.44px;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.text-area .desc-date {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 21px;
+    letter-spacing: 1.12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 19px;
+}
+
+.text-area .desc-text {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 25px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px; /* 버튼과의 간격을 위해 추가하면 좋습니다 */
+}
+
+/* 버튼 디자인 */
+.btn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 21px 32px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 500; /*미디움*/
+    transition: background 0.3s;
+}
+
+.btn-more:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* 하단 스크롤 안내 위치 및 정렬 */
+.scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px; /* 글자와 선 사이 간격 */
+    z-index: 2;
+}
+
+/* SCROLL 글자 스타일 */
+.scroll p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+}
+/* 전체 배경 선 (.line) */
+.scroll .line {
+    position: relative;          /* 내부 thumb의 기준점 역할 */
+    display: block;
+    width: 1px;                  /* 크기 W: 1 */
+    height: 48px;                /* 크기 H: 48 */
+    background-color: rgba(255, 255, 255, 0.2); /* 채우기 FFFFFF, 불투명도 20% */
+    overflow: hidden;            /* 선 밖으로 삐져나가지 않도록 처리 */
+}
+
+/* 움직이는 인디케이터 바 (.thumb) */
+.scroll .thumb {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1px;                  /* 크기 W: 1 */
+    height: 19.19px;             /* 크기 H: 19.19 */
+    background-color: rgba(255, 255, 255, 0.6); /* 채우기 FFFFFF, 불투명도 60% */
+}
+
+/* 1. 전체 섹션 기본 레이아웃 */
+.collection {
+    width: 100%;
+    margin: 0 auto;
+    padding: 96px 275px 62px 270px; /* 상하 여백 및 좌우 패딩 */
+}
+
+/* 2. 상단 타이틀 및 전체 보기 영역 정렬 */
+.collection .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 58px; /* 타이틀과 카드 목록 사이 간격 */
+}
+
+/* 타이틀 박스 */
+.collection .title-box .sub-title {
+    display: block;
+    font-weight: 400;                               /* Regular */
+    font-size: 16px;                                /* 크기 16 */
+    line-height: 16.5px;                            /* 행간 16.5 */
+    letter-spacing: 2.75px;                         /* 자간 2.75px */
+    color: var(--color-gray1);                               /* 채우기 색상 */
+    margin-bottom: 11.5px;
+}
+
+.collection .title-box h2 {
+    font-size: 44px;
+    line-height: 52.8px;
+    letter-spacing: -0.88px;
+    font-weight: 300;
+    color:var( --color-black);
+}
+
+/* 전체 보기 버튼 */
+.collection .btn-all {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color:var(--color-black-50);
+    font-weight: 300;
+}
+
+.collection .btn-all img {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+   
+}
+
+.collection .btn-all:hover img {
+    transform: translateX(3px); /* 마우스 올리면 화살표가 살짝 오른쪽으로 이동 */
+}
+
+/* 3. 상품 카드 리스트 영역 (4개 가로 정렬) */
+.collection .collection-list ul {
+    display: flex;
+    gap: 20px; /* 카드와 카드 사이 간격 */
+}
+
+.collection .collection-list li {
+    width: 327px;
+}
+
+.collection .collection-list li a {
+    display: block;
+}
+
+/* 이미지 박스 */
+.collection .collection-list .img-box {
+    width: 100%;
+    height: 436px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.collection .collection-list .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* 이미지에 마우스 올렸을 때 살짝 확대되는 효과 */
+.collection .collection-list li a:hover .img-box img {
+    transform: scale(1.03);
+}
+
+/* 텍스트 정보 박스 */
+.collection .collection-list .info-box .category-name {
+    display: block;
+    font-size: 16px;
+    color: var(--color-black-40);
+    line-height: 23px;                            /* 행간 */
+    letter-spacing: 0.92px; 
+
+}
+
+.collection .collection-list .info-box .item-name {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0,42px;
+    color:var(--color-black);
+}
+/* 섹션2끝 */
+
+/* 섹션3 시작 */
+.bestseller {
+    background-color: #F5F5F3;
+    max-width: 1920px;
+    padding: 96px 270px 124px;
+}
+.best-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+.best-sub-title {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16.5px;
+    font-weight: 400;
+    letter-spacing: 3.3px;
+    color: var(--color-gray1);
+    margin-bottom: 16px;
+}
+
+.best-main-title {
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--color-black);
+    margin-bottom: 3px;
+}
+
+.best-header .description {
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 400;
+    color: var(--color-black-50);
+}
+
+/* 리스트 카드영역 */
+.best-product-list {
+    display: flex;
+    gap:59px;
+}
+/* 개별 상품 카드 스타일 */
+.product-card {
+    position: relative; /* 위시리스트 버튼 절대위치 지정을 위해 필수 */
+    flex: 1;
+    
+}
+
+/* 상품 링크 영역 전체 */
+.product-card a {
+    display: block;
+}
+
+/* 썸네일 이미지 박스 */
+.product-thumb {
+    width: 421px;
+    height: 526px;    
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.product-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* 카드에 마우스 올렸을 때 이미지 살짝 확대 */
+.product-card > a:hover .product-thumb img {
+    transform: scale(1.03);
+}
+
+/* 상품 텍스트 정보 스타일 */
+.best-category {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-black-40);
+    margin-bottom: 15px;
+    line-height: 16.5px;
+    letter-spacing: 0.66px; /*자간*/
+}
+.best-item-name {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--color-black);
+    margin-bottom: 9px;
+    line-height: 23px;
+}
+.best-item-desc {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--color-black-60);
+    margin-bottom: 17px;
+    line-height:18px;
+}
+.best-price {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-black);
+    line-height:21px;
+}
+
+/* 4. 위시리스트 버튼 스타일 (절대 위치로 우측 상단 배치) */
+.product-card .btn-wish {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.product-card .btn-wish img {
+    width: 100%;
+    height: 100%;
+}
+/* 섹션3 끝 */
+
+/* 섹션4 향기의 이야기 */
+.scent-story {
+    width: 100%;
+    height: 640px;
+}
+
+.scent-story-visual {
+    position: relative;
+    width: 100%;
+    height: 640px;
+    background: url('../img/main/story.jpg') no-repeat center top / cover;
+}
+
+.scent-story-copy {
+    position: absolute;
+    top: 240px;
+    left: 50%;
+    width: 376px;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--color-White);
+}
+
+.scent-story-copy h2 {
+    margin-bottom: 30px;
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 73.6px;
+    letter-spacing: -1.28px;
+}
+
+.scent-story-copy p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28.5px;
+    color: var(--color-White-90);
+}
+
+/* 섹션4끝 */
+
+/* 섹션5시작 */
+
+.chamo-section {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    height: 960px;
+    overflow: hidden;
+    background: var(--color-White);
+    display: flex;
+    align-items: center;
+    /* 전체를 중앙이 아니라 피그마 레이아웃 위치에 맞춰 왼쪽 여백 설정 */
+    padding-left: 378px; 
+}
+
+.chamo-content {
+    position: static; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 내부 요소들을 가로 중앙 정렬 */
+    text-align: center;
+}
+
+.chamo-content h2 {
+    margin-bottom: 29px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 37px;
+    color: var(--color-black);
+}
+
+.chamo-product {
+    display: block;
+    width: 279px;
+    height: 366px;
+    margin: 0 auto 21px;
+    object-fit: cover;
+}
+
+.chamo-description {
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28.5px;
+    color: var(--color-black-60);
+}
+
+.chamo-notes-label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: 2px;
+    color: var(--color-black-30);
+}
+
+.chamo-notes {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 43px;
+    gap:20px;
+    
+}
+
+.chamo-notes li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 34px;
+    background: #e8ede7;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+}
+
+.chamo-notes li:nth-child(1) {
+    width: 56px;
+}
+
+.chamo-notes li:nth-child(2) {
+    width: 69px;
+}
+
+.chamo-notes li:nth-child(3) {
+    width: 56px;
+}
+
+.chamo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 19.5px;
+    letter-spacing: 0.78px;
+    color: var(--color-black);
+}
+.chamo-link img {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+.chamo-link:hover img {
+    transform: translateX(3px);
+}
+.chamo-flower {
+    position: absolute;
+    top: 59px;
+    left: calc(50% + 90px);
+    width: 693px;
+    height: 847px;
+    object-fit: cover;
+}
+/* 섹션5끝 */
+
+
+/* 섹션 6 */
+.about {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 80px;
+    width: 100%;
+    max-width: 1920px;
+    height: 610px;
+    margin: 0 auto;
+    padding: 133px 220px 137px 270px;
+    background: #f5f5f3;
+}
+
+.about-copy {
+    flex: 0 0 600px;
+    min-width: 0;
+    text-align: left;
+}
+
+.about-eyebrow {
+    display: block;
+    margin-bottom: 23px;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16.5px;
+    letter-spacing: 3.3px;
+    color: var(--color-gray1);
+}
+
+.about-copy h2 {
+    margin-left: -3px;
+    margin-bottom: 38px;
+    font-size: 56px;
+    font-weight: 200;
+    line-height: 67px;
+    letter-spacing: -1.12px;
+    color: #1b1b1b;
+}
+
+.about-description {
+    margin-bottom: 48.5px;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 28.5px;
+    color: var(--color-black-80);
+}
+
+.about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 169px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 19.5px;
+    letter-spacing: 0.78px;
+    color: var(--color-black-80);
+}
+
+.about-link img {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+.about-link:hover img {
+    transform: translateX(3px);
+}
+
+.about-stats {
+    display: grid;
+    flex: 0 0 700px;
+    margin-top: 19px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px 20px;
+}
+
+.about-stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 339px;
+    height: 160px;
+    padding: 0 40px;
+    background: #fbf8f8;
+}
+
+.about-stat strong {
+    margin-bottom: 8px;
+    font-size: 36px;
+    font-weight: 200;
+    line-height: 54px;
+    letter-spacing: -0.72px;
+    color: var(--color-gray1);
+}
+
+.about-stat span {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    letter-spacing: 0.72px;
+    color: var(--color-black-80);
+}
+
+/* 섹션 6끝 */
+

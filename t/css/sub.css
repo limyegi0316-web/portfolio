@@ -1,0 +1,308 @@
+.hero {
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	height: 994px;
+	padding: 0 0 82px 267px;
+	overflow: hidden;
+	background: url('../img/sub/bestsellerhero.jpg') center / cover no-repeat;
+}
+
+.hero-text {
+	position: relative;
+	z-index: 1;
+}
+
+.hero-label {
+	margin: 0 0 9px;
+	font-size: 11px;
+	font-weight: 400;
+	letter-spacing: 0.4em;
+	line-height: 16.5px;
+	color: var(--color-White-70);
+}
+
+.hero h2 {
+	margin: 0 0 8px;
+	margin-left: -7px;
+	font-size: 80px;
+	color:#ffffff;
+	font-weight: 200;
+	line-height: 84px;
+	letter-spacing: -2.4px;
+}
+
+.hero-desc {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 21px;
+	letter-spacing: 1.4px;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+/* 카테고리 */
+.category-bar {
+	display: flex;
+	align-items: flex-end;
+	height: 127px;
+	background: rgba(255, 255, 255, 0.95);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.category-inner {
+	display: flex;
+	align-items: stretch;
+	justify-content: flex-start;
+	width: min(1380px, calc(100% - 80px));
+	height: 54px;
+	margin: 0 auto;
+}
+
+.category-list {
+	display: flex;
+	height: 100%;
+}
+
+.category-list li {
+	height: 100%;
+}
+
+.category-list a {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	padding: 0 22px;
+	box-sizing: border-box;
+	border-bottom: 2px solid transparent;
+	font-size: 16px;
+	line-height: 19.5px;
+	font-weight: 400;
+	letter-spacing: 0.26px;
+	white-space: nowrap;
+	color: rgba(0, 0, 0, 0.4);
+}
+
+.category-list li:nth-child(1) a,
+.category-list li:nth-child(2) a {
+	width: 71px;
+}
+
+.category-list li:nth-child(3) a {
+	width: 97.72px;
+}
+
+.category-list li:nth-child(n + 4) a {
+	width: 109.22px;
+}
+
+.category-list a.is-active {
+	border-bottom-color: #000;
+	font-weight: 500;
+	color: #000;
+}
+
+.sort-link {
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+	padding: 0 0 0 15px;
+	font-size: 14px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.sort-link::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 1px;
+	height: 12px;
+	background: rgba(0, 0, 0, 0.3);
+	transform: translateY(-50%);
+}
+
+/* 각 섹션  */
+
+.product-sections {
+	width: min(1380px, calc(100% - 80px));
+	margin: 0 auto;
+}
+
+.product-section:nth-child(1) {
+	padding-top: 80px;
+	padding-bottom: 145px;
+}
+
+.product-section:nth-child(2) {
+	
+	padding-bottom: 145px;
+}
+
+.product-section:nth-child(3) {
+	
+	padding-bottom: 192px;
+}
+
+.section-heading {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	height: 97px;
+	margin-bottom: 46px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.section-label {
+	margin-bottom: 8px;
+	font-size: 16px;
+	line-height: 16px;
+	color: #7d9178;
+}
+/* 2. 2번째와 3번째 섹션 안의 .section-label에만 피그마 속성 추가 */
+.product-section:nth-of-type(2) .section-label,
+.product-section:nth-of-type(3) .section-label {
+    line-height: 16.5px;
+    letter-spacing: 2.75px;
+}
+
+.section-heading h2 {
+	margin-bottom: 27px;
+	font-size: 32px;
+	font-weight: 300;
+	line-height: 48px;
+}
+
+.section-heading > a {
+	margin-bottom: 25px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	font-size: 12px;
+	color: rgba(0, 0, 0, 0.4);
+}
+
+.product-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 21px;
+}
+
+.product-image-box {
+	width: 328px;
+	height: 410px;
+	margin-bottom: 20px;
+	overflow: hidden;
+	background: #f0f0ee;
+}
+
+.product-image-box img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* 이미지에 부드러운 전환 효과 부여 */
+.product-image-box img {
+    transition: transform 0.3s ease; /* 부드럽게 움직이도록 설정 */
+}
+
+/* 마우스를 li(카드) 전체에 올렸을 때 안의 이미지가 확대 */
+.product-grid li:hover .product-image-box img {
+    transform: scale(1.05); /* 5% 크기 확대 */
+}
+
+.product-grid li {
+	position: relative;
+}
+
+.product-grid li a {
+	position: relative;
+	display: block;
+}
+
+.product-grid li a::before {
+	content: "";
+	position: absolute;
+	left: 16px;
+	top: 16px;
+	z-index: 1; /* 이미지보다 위에보이도록*/
+	padding: 10px;
+	font-size: 10px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	line-height: 15px;
+	color: #ffffff;
+	background: #0a0a0a;
+	display: none;
+}
+
+.wishlist-button {
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	z-index: 1;
+	width: 30px;
+	height: 30px;
+	background: none;
+	cursor: pointer;
+}
+
+.wishlist-button img {
+	display: block;
+	width: 30px;
+	height: 30px;
+}
+
+
+.product-section .product-grid li:nth-child(1) a::before,
+.product-section .product-grid li:nth-child(2) a::before {
+	display: block;
+}
+
+.product-section .product-grid li:nth-child(1) a::before {
+	content: "BEST";
+}
+
+.product-section .product-grid li:nth-child(2) a::before {
+	content: "NEW";
+	background: #7d9178;
+}
+
+.product-grid span {
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.66px;
+	color: rgba(0, 0, 0, 0.4);
+}
+
+.product-grid p {
+	font-size: 16px;
+	line-height: 20px;
+	margin-bottom: 15px;
+	color: rgba(0, 0, 0, 0.55);
+
+}
+
+.product-grid h3 {
+	margin-top: 9px;;
+	margin-bottom: 16px;
+	font-size: 18px;
+	line-height: 22.5px;
+	font-weight: 400;
+}
+
+.product-grid strong {
+	display: block;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 21px;
+}
+
+
+
+
+
+
+
