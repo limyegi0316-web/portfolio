@@ -16,7 +16,12 @@
     <div class="logo">
         <a href="#"><img src="./img/main_logo.png" alt="logo"></a>
     </div>
-    <nav class="gnb">
+    <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="main-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav class="gnb" id="main-navigation">
         <ul>
             <li><a href="./sub/br.html">BRAND</a></li>
             <li><a href="./sub/shop.html">SHOP</a></li>
@@ -442,6 +447,28 @@
         
     </div>
 </footer>
+
+<script>
+    (() => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navigation = document.querySelector('.gnb');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!isOpen));
+            menuToggle.setAttribute('aria-label', isOpen ? '메뉴 열기' : '메뉴 닫기');
+            navigation.classList.toggle('is-open', !isOpen);
+        });
+
+        navigation.addEventListener('click', (event) => {
+            if (event.target.closest('a')) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', '메뉴 열기');
+                navigation.classList.remove('is-open');
+            }
+        });
+    })();
+</script>
     
 </body>
 </html>
