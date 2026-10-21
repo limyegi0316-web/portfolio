@@ -1,0 +1,205 @@
+/* 공통 초기화 및 기본 설정 */
+* { box-sizing: border-box; }
+html { font-size: 62.5%; }
+body { margin: 0; color: #18364b; font: 400 16px/1.65 Inter, sans-serif; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* 상단 헤더 영역 (Header) */
+.site-header { 
+  position: relative; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  width: 100%; 
+  max-width: 1920px; 
+  height: 100px; 
+  margin: 0 auto; 
+  padding: 0 26px; 
+  background: #fff; 
+  color: #000; 
+}
+.site-header .logo img { 
+  display: block; 
+  width: auto; 
+  height: 63px; 
+  object-fit: contain; 
+}
+
+/* GNB 메뉴 */
+.gnb { 
+  position: absolute; 
+  left: 50%; 
+  transform: translateX(-50%); 
+}
+.gnb ul { 
+  display: flex; 
+  align-items: center; 
+  gap: 35px; 
+  margin: 0; 
+  padding: 0; 
+  list-style: none; 
+}
+.gnb li a { 
+  position: relative; 
+  display: block; 
+  padding: 20px; 
+  color: #000; 
+  font-size: 16px; 
+  font-weight: 500; 
+}
+.gnb li.is-active a::after { 
+  position: absolute; 
+  right: 10px; 
+  bottom: -7px; 
+  left: 10px; 
+  height: 3px; 
+  background: #159ce8; 
+  content: ""; 
+}
+
+/* 상단 아이콘 및 검색 영역 */
+.icon { 
+  display: flex; 
+  align-items: center; 
+  gap: 20px; 
+}
+.search-box { 
+  position: relative; 
+  display: flex; 
+  align-items: center; 
+}
+.search-box input { 
+  width: 127px; 
+  height: 34px; 
+  border: 0; 
+  border-bottom: 2px solid #111; 
+  outline: none; 
+  background: transparent; 
+}
+.search-box a { 
+  position: absolute; 
+  top: 50%; 
+  right: 0; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  transform: translateY(-50%); 
+}
+.icon-search img { width: 27px; height: 27px; object-fit: contain; }
+.icon-mypage img { width: 29px; height: 29px; object-fit: contain; }
+.icon-cart img { width: 28px; height: 28px; object-fit: contain; }
+
+/* 하단 푸터 영역 (Footer) */
+.footer { 
+  width: 100%; 
+  background: #f3faff; 
+  color: #111; 
+}
+.footer-inner { 
+  position: relative; 
+  width: 100%; 
+  max-width: 1440px; 
+  min-height: 452px; 
+  margin: 0 auto; 
+  padding: 72px 0 51px; 
+}
+.footer-content { 
+  display: flex; 
+  align-items: flex-start; 
+  justify-content: space-between; 
+  margin-bottom: 34px; 
+}
+.footer-brand { 
+  width: 173px; 
+  padding-top: 0; 
+}
+.footer-logo { 
+  display: flex; 
+  align-items: center; 
+  justify-content: flex-start; 
+}
+.footer-logo img { 
+  display: block; 
+  width: 173px; 
+  height: auto; 
+}
+.footer-columns { 
+  position: relative; 
+  display: flex; 
+  flex: 1; 
+  align-items: flex-start; 
+  justify-content: space-between; 
+}
+.footer-block { 
+  color: #000; 
+  font-size: 16px; 
+  font-weight: 400; 
+  line-height: 1.5; 
+}
+.footer-company { max-width: 465px; }
+.footer-customer { min-width: 222px; margin-left: -430px; }
+.footer-line { margin: 0; }
+.footer-title, .footer-label { font-weight: 500; }
+.footer-sns { 
+  display: flex; 
+  width: 170px; 
+  justify-content: flex-end; 
+  gap: 16px; 
+  padding-top: 10px; 
+}
+.sns-icon { 
+  display: flex; 
+  width: 40px; 
+  height: 40px; 
+  align-items: center; 
+  justify-content: center; 
+}
+.sns-icon img { display: block; }
+.footer-copy { 
+  align-self: flex-end; 
+  margin: 0; 
+  color: #737373; 
+  font-size: 12px; 
+  line-height: 1.4; 
+}
+
+/* 반응형 디자인 (Mobile) */
+@media (max-width: 760px) {
+  .site-header { 
+    height: auto; 
+    min-height: 80px; 
+    padding: 10px 5%; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+  }
+  .site-header .logo img { height: 50px; }
+  
+  .gnb { 
+    position: static; 
+    order: 3; 
+    width: 100%; 
+    overflow-x: auto; 
+    transform: none; 
+  }
+  .gnb ul { justify-content: space-between; gap: 4px; }
+  .gnb li a { padding: 10px 4px; font-size: 12px; }
+  .gnb li.is-active a::after { right: 4px; bottom: 2px; left: 4px; }
+  
+  .icon { gap: 8px; }
+  .search-box input { width: 48px; }
+  .icon-mypage img, .icon-cart img { width: 22px; height: 22px; }
+  
+  .footer-inner { width: 90%; min-height: 0; padding: 35px 0; }
+  .footer-content { align-items: center; margin-bottom: 24px; }
+  .footer-brand { width: auto; }
+  .footer-logo img { width: 130px; }
+  .footer-columns { flex-direction: column; gap: 20px; }
+  .footer-block { font-size: 12px; }
+  .footer-company { max-width: 100%; }
+  .footer-customer { min-width: 0; margin-left: 0; }
+  .footer-sns { width: auto; gap: 10px; padding-top: 0; }
+  .sns-icon { width: 32px; height: 32px; }
+  .sns-icon img { max-width: 100%; max-height: 100%; }
+  .footer-copy { align-self: flex-start; }
+}

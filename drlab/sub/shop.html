@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./sh.common.css">
+    <link rel="stylesheet" href="./shop.css">
+    <link rel="stylesheet" href="./reset.css">
+
+
+    <script src="https://kit.fontawesome.com/d924f938b2.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body>
+
+<!-- header : index.html과 동일 -->
+<header>
+    <div class="logo">
+        <a href="../index.html"><img src="./img/main_logo.png" alt="닥터랩 로고"></a>
+    </div>
+
+    <nav class="gnb">
+        <ul>
+            <li><a href="./br.html">BRAND</a></li>
+            <li class="is-active"><a href="./shop.html" aria-current="page">SHOP</a></li>
+            <li><a href="#">BEST</a></li>
+            <li><a href="#">REVIEW</a></li>
+            <li><a href="./event.html">EVENT</a></li>
+            <li><a href="#">COMMUNITY</a></li>
+        </ul>
+    </nav>
+
+    <div class="icon">
+        <div class="search-box">
+            <input type="text" placeholder="">
+            <a href="#" class="icon-search"><img src="./img/search.svg" alt="검색"></a>
+        </div>
+
+        <a href="#" class="icon-mypage">
+            <img src="./img/mypage.svg" alt="마이페이지">
+        </a>
+
+        <a href="#" class="icon-cart">
+            <img src="./img/cart.svg" alt="장바구니">
+        </a>
+    </div>
+</header>
+
+
+<main class="sub-page">
+
+    <!-- page hero -->
+    <section class="sub-hero">
+        <div class="sub-hero-inner">
+
+            <h1 class="sub-hero-title">ALL PRODUCTS</h1>
+            <p class="sub-hero-desc">
+                닥터랩의 모든 제품을 한눈에 만나보세요.<br>
+                피부 고민에 맞는 최적의 솔루션을 제안합니다.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- product category -->
+    <section class="product-category">
+        <div class="sub-container">
+
+            <ul class="product-category-list">
+
+                <li class="product-category-item is-active">
+                    <a href="#" class="product-category-link">
+                        <div class="product-category-icon">
+                            <img src="./img/ellipse8.jpg" alt="">
+                        </div>
+                        <p class="product-category-name">전체상품</p>
+                    </a>
+                </li>
+
+                <li class="product-category-item">
+                    <a href="#" class="product-category-link">
+                        <div class="product-category-icon">
+                            <img src="./img/ellipse5.jpg" alt="">
+                        </div>
+                        <p class="product-category-name">스킨케어</p>
+                    </a>
+                </li>
+
+                <li class="product-category-item">
+                    <a href="#" class="product-category-link">
+                        <div class="product-category-icon">
+                            <img src="./img/ellipse6.jpg" alt="">
+                        </div>
+                        <p class="product-category-name">클렌저</p>
+                    </a>
+                </li>
+
+                <li class="product-category-item">
+                    <a href="#" class="product-category-link">
+                        <div class="product-category-icon">
+                            <img src="./img/ellipse4.jpg" alt="">
+                        </div>
+                        <p class="product-category-name">앰플/세럼</p>
+                    </a>
+                </li>
+
+                <li class="product-category-item">
+                    <a href="#" class="product-category-link">
+                        <div class="product-category-icon">
+                            <img src="./img/ellipse7.jpg" alt="">
+                        </div>
+                        <p class="product-category-name">크림</p>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </section>
+
+
+    <!-- product list -->
+    <section class="product-area">
+        <div class="sub-container">
+
+            <div class="product-top">
+                <p class="product-total">TOTAL 24 PRODUCTS</p>
+
+                <div class="product-controls">
+                    <select class="product-select" aria-label="제품 카테고리">
+                        <option>ALL</option>
+                        <option>CLEANSING</option>
+                        <option>TONER</option>
+                        <option>SERUM</option>
+                        <option>CREAM</option>
+                    </select>
+
+                    <select class="product-select" aria-label="피부 타입">
+                        <option>SKIN TYPE</option>
+                        <option>DRY</option>
+                        <option>SENSITIVE</option>
+                        <option>OILY</option>
+                    </select>
+
+                    <select class="product-select" aria-label="피부 고민">
+                        <option>CONCERN</option>
+                        <option>DRYNESS</option>
+                        <option>SENSITIVITY</option>
+                        <option>PORES</option>
+                    </select>
+
+                    <select class="product-select product-sort" aria-label="상품 정렬">
+                        <option>RECOMMENDED</option>
+                        <option>NEW</option>
+                        <option>LOW PRICE</option>
+                        <option>HIGH PRICE</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="product-grid">
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/2002120014_01 1.jpg" alt="닥터랩 더마랩 클렌징 폼">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">SUNCREAM</p>
+                        <h2 class="product-name">올 데이 디펜스 선 크림 SPF 50+ PA+++</h2>
+                        <p class="product-desc">백탁 없이 부드럽게 밀착되는 촉촉한 선크림</p>
+                        <p class="product-price">51,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/2605280001_01 1.jpg" alt="닥터랩 하이드로 토너">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">CREAM</p>
+                        <h2 class="product-name">인텐스 리뉴얼 크림</h2>
+                        <p class="product-desc">실리콘 무첨가의 베리어 케어 크림</p>
+                        <p class="product-price">38,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/2002120120_list 1.jpg"닥터랩 퍼펙트 세럼">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">CREAM</p>
+                        <h2 class="product-name">하이드라 더마 아줄렌 크림</h2>
+                        <p class="product-desc">손상된 피부 장벽을 건강하게 케어해 주는 저자극 진정 크림</p>
+                        <p class="product-price">138,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/2404080001_01 1.jpg" alt="닥터랩 리페어 크림">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">AMPOULE</p>
+                        <h2 class="product-name">화이트 팩터 나이아신 앰플</h2>
+                        <p class="product-desc">고농축 미백 광채 앰플</p>
+                        <p class="product-price">85,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="./img/activzyme milk cleanser 2.jpg" alt="닥터랩 마이크로 마스크">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">CLEANSING</p>
+                        <h2 class="product-name">액티브자임 밀크 클렌저</h2>
+                        <p class="product-desc">민감한 피부를 촉촉하게 케어해 주는 저자극 클렌저</p>
+                        <p class="product-price">68,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/azulene mousse 1.jpg" alt="닥터랩 클렌징 워터">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">CLEANSING</p>
+                        <h2 class="product-name">아줄렌 무스 클렌저</h2>
+                        <p class="product-desc">풍성한 거품으로 예민한 피부를 진정시켜 주는 폼클렌저</p>
+                        <p class="product-price">42,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="./img/hydra-15soothingampoule[0]1.jpg" alt="닥터랩 데일리 선크림">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">AMPOULE</p>
+                        <h2 class="product-name">하이드라 15 수딩 앰플</h2>
+                        <p class="product-desc">풍부한 수분감으로 촉촉하게 케어해 주는 대용량 수딩 앰플</p>
+                        <p class="product-price">148,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/ph 1.jpg" alt="닥터랩 블루 앰플">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">AMPOULE</p>
+                        <h2 class="product-name">피에이치 밸런싱 프로폴리스 솔루션</h2>
+                        <p class="product-desc">트러블과 모공을 진정시키는 pH 밸런싱 앰플</p>
+                        <p class="product-price">78,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/p[1] 1.jpg" alt="닥터랩 바디로션">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">TONER</p>
+                        <h2 class="product-name">피에이치 밸런싱 토너</h2>
+                        <p class="product-desc">피부 pH 밸런스를 건강하게 맞춰 피부를 진정시켜주는 토너</p>
+                        <p class="product-price">36,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/1.jpg" alt="닥터랩 아이크림">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">AMPOULE</p>
+                        <h2 class="product-name">바이오펩타 리바이탈라이징 앰플</h2>
+                        <p class="product-desc">피부를 탄탄하게 케어해 주는 안티에이징 앰플</p>
+                        <p class="product-price">85,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/2.jpg" alt="닥터랩 수딩 에센스">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">CLEANSING</p>
+                        <h2 class="product-name">설퍼 파우더 워시</h2>
+                        <p class="product-desc">모공과 여드름 피부를 매끄럽게 케어해주는 파우더 워시</p>
+                        <p class="product-price">35,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/3.jpg" alt="닥터랩 시카 팩">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">AMPOULE</p>
+                        <h2 class="product-name">하이드라 더마 센텔라시카 솔루션</h2>
+                        <p class="product-desc">울긋불긋한 피부를 위한 촉촉한 진정 솔루션</p>
+                        <p class="product-price">108,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/4.jpg" alt="닥터랩 딥 클렌징 젤">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">AMPOULE</p>
+                        <h2 class="product-name">하이드라 15 히알루론산 솔루션</h2>
+                        <p class="product-desc">수분 부족 피부를 위한 고농축 히알루론산 솔루션</p>
+                        <p class="product-price">78,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/5.jpg" alt="닥터랩 리얼 세럼">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">TONER</p>
+                        <h2 class="product-name">하이드라 15 수딩 토너</h2>
+                        <p class="product-desc">수분 부족 피부에 촉촉함을 채워주는 수딩 토너</p>
+                        <p class="product-price">33,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/2601120002_01 1.jpg" alt="닥터랩 모이스처 크림">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">AMPOULE</p>
+                        <h2 class="product-name">하이드라 더마 캐모마일 솔루션</h2>
+                        <p class="product-desc">울긋불긋 민감한 피부를 편안하게 케어해 주는 진정 솔루션</p>
+                        <p class="product-price">105,000원</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="../sub/img/2601120001_01 1.jpg" alt="닥터랩 콜라겐 마스크">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-type">AMPOULE</p>
+                        <h2 class="product-name">바이오펩타 리바이탈라이징 솔루션</h2>
+                        <p class="product-desc">피부 탄력과 영양을 채워주는 바이오펩타 솔루션</p>
+                        <p class="product-price">105,000원</p>
+                    </div>
+                </article>
+
+            </div>
+
+
+            <nav class="product-pagination" aria-label="상품 페이지 이동">
+                <a href="#" class="arrow" aria-label="이전 페이지">‹</a>
+                <a href="#" class="is-active" aria-current="page">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#" class="arrow" aria-label="다음 페이지">›</a>
+            </nav>
+
+        </div>
+    </section>
+
+</main>
+
+
+<!-- footer.footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="../img/f_logo.png" alt="닥터랩 로고">
+                </div>
+            </div>
+
+            <div class="footer-sns">
+                <a href="#" class="sns-icon" aria-label="Instagram">
+                    <img src="./img/mdi_instagram.svg" alt="Instagram">
+                </a>
+                <a href="#" class="sns-icon" aria-label="Facebook">
+                    <img src="./img/mingcute_facebook-line.svg" alt="Facebook">
+                </a>
+                <a href="#" class="sns-icon" aria-label="YouTube">
+                    <img src="./img/line-md_youtube.svg" alt="YouTube">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-columns">
+            <div class="footer-block footer-company">
+                <p class="footer-line1">DR+LAB (DERMAMETICS BRAND FOR YOUR SKIN)</p>
+                <p class="footer-line2">(주) 이트리얼</p>
+                <p class="footer-line"><span class="footer-label">대표이사</span> : 이영창</p>
+                <p class="footer-line"><span class="footer-label">주소</span> : 서울특별시 마포구 월드컵북로 58길 10, 7층 (상암동, 대원빌딩)</p>
+                <p class="footer-line"><span class="footer-label">사업자 등록번호</span> : 101-86-28213</p>
+                <p class="footer-line"><span class="footer-label">통신판매업 신고번호</span> : 서울마포-0633호</p>
+            </div>
+
+            <div class="footer-block footer-customer">
+                <p class="footer-line"><span class="footer-title">고객센터</span></p>
+                <p class="footer-line"><span class="footer-label">TEL.</span> 1644-7230</p>
+                <p class="footer-line"><span class="footer-label">평일</span> 10:00 ~ 17:00</p>
+                <p class="footer-line"><span class="footer-label">FAX.</span> 02-3946-8799</p>
+                <p class="footer-line"><span class="footer-label">E-MAIL.</span> drlab@etheral.co.kr</p>
+            </div>
+            <p class="footer-copy">Copyright © ETHEREAL CO., LTD.</p>
+        </div>
+
+        
+    </div>
+</footer>
+    
+</body>
+</html>

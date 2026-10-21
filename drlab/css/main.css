@@ -1,0 +1,618 @@
+.visual {
+    width: 100%;
+    height: 819px;
+    position: relative;
+    background: url(../img/vis.jpg) no-repeat center center / cover;
+    overflow: hidden;
+}
+.visual .visual-content {
+    position: absolute;
+    inset: 0;
+    color: #000;
+}
+
+.visual .line-wrap {
+    position: absolute;
+    left: 1097px;
+    top: 270px;
+    height: 3px;
+}
+
+.visual .line-wrap .line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 3px;
+   
+}
+
+.visual .line-wrap .line-2 {
+    width: 33px;
+    background-color: #fff;
+}
+
+.visual .line-wrap .line-1 {
+    width: 99px;
+    background-color: #98C1D2;
+}
+
+.visual .line-middle {
+    position: absolute;
+    left: 1097px;
+    top: 530px;
+    width: 36px;
+    height: 1px;
+    background-color: #98C1D2;
+}
+
+.visual .sub-text {
+    position: absolute;
+    left: 1097px;
+    top: 313px;
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 6%;
+    color: #5c5c5c;
+    white-space: nowrap;
+    animation: hero-text-in 0.7s ease-out both;
+}
+
+.visual .main-title {
+    position: absolute;
+    left: 1097px;
+    top: 369px;
+    font-family: Inter, sans-serif;
+    font-size: 64px;
+    font-weight: 600;
+    letter-spacing: 6%;
+    white-space: nowrap;
+    animation: hero-text-in 0.7s 0.1s ease-out both;
+}
+
+.visual .sub-title {
+    position: absolute;
+    left: 1096px;
+    top: 465px;
+    font-family: Inter, sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 46%;
+    white-space: nowrap;
+    animation: hero-text-in 0.7s 0.18s ease-out both;
+}
+
+.visual .desc-text {
+    position: absolute;
+    left: 1097px;
+    top: 555px;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #5c5c5c;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+    animation: hero-text-in 0.7s 0.26s ease-out both;
+}
+.category {
+    width: 100%;
+    padding: 70px 0 93px;
+    background-color: #ffffff;
+}
+/* 리스트 가로 정렬 및 간격 */
+.category-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* 아이템 간격 */
+}
+/* 개별 아이템 박스 */
+.category .item {
+    display: flex;
+    flex-direction: column; /*아이템들이 위에서 아래로 세로로 쌓임*/
+    align-items: center;
+    cursor: pointer;
+}
+/* 아이콘 원형 배경 및 이미지 스타일 */
+.category .item img {
+    margin-bottom: 33px;
+    transition: transform 0.35s ease;
+}
+
+.category .item:hover img {
+    transform: translateY(-4px) scale(1.03);
+}
+
+/* 하단 텍스트 스타일 */
+.category .item p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+}
+
+/* 베스트셀러 */
+.best {
+    width: 100%;
+    padding: 92px 0 144px;
+    background-color: #ffffff;
+}
+
+/* 섹션 타이틀 (BEST SELLER) */
+.best h2 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 96px;
+    color: #000000;
+    letter-spacing: -0.04em;
+}
+
+/* 상품 목록을 감싸는 부모 박스 */
+.best-list {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 0 auto 92px;
+}
+
+/* 개별 상품 아이템 */
+.best-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 342px;
+    
+    cursor: pointer;
+
+}
+
+/* 순위 뱃지 (1, 2, 3, 4) */
+.best-item .rank {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    background: #98C1D2;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* 이미지 박스 */
+.best-item .img-box {
+    width: 342px;
+    height: 436px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.best-item .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.best-item:hover .img-box img {
+    transform: scale(1.035);
+}
+
+/* 상품 정보 박스 */
+.best-item .info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 342px;
+}
+
+/* 상품명 */
+.best-item .name {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #000000;
+    margin: 0;
+}
+
+/* 해시태그 */
+.best-item .tag {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #0076BF;
+    margin: 0;
+}
+
+/* 가격 */
+.best-item .price {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #000000;
+    margin: 0;
+}
+
+/* 하단 VIEW MORE 버튼 */
+.view-btn {
+    text-align: center;
+}
+
+.view-btn a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 42px;
+    border: 1px solid #0076BF;
+    color: #0076BF;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    transition: color 0.25s ease, background-color 0.25s ease;
+}
+
+.view-btn a:hover {
+    background-color: #0076BF;
+    color: #ffffff;
+}
+
+/* 솔루션 */
+.solution {
+    width: 100%;
+    background-color: #F7F6F2;
+    padding: 85px 0 147px;
+}
+
+.solution-header {
+    text-align: center;
+}
+
+.solution h2 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+}
+
+.solution-list {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    margin-top: 153px;
+}
+
+.solution-item {
+    width: 350px;
+}
+
+.solution-img {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.solution-img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.solution-item:hover .solution-img img {
+    transform: scale(1.035);
+}
+
+.solution-text {
+    width: 350px;
+    height: 297px;
+    padding: 59px 0px 16px 0px;
+    box-sizing: border-box;
+}
+
+.solution-item:nth-child(1) .solution-text {
+    background-color: #f7f8f8;
+}
+
+.solution-item:nth-child(2) .solution-text {
+    background-color: #f1f4f7;
+}
+
+.solution-item:nth-child(3) .solution-text {
+    background-color: #f7f7f7;
+}
+
+.solution-item:nth-child(4) .solution-text {
+    background-color: #f6f3f1;
+}
+
+.solution-title {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+    color: #005284;
+    margin: 0 0 10px;
+}
+
+.solution-subtitle {
+    font-size: 22px;
+    line-height: 1.5;
+    color: #000000;
+    margin: 0 0 42px;
+}
+
+.solution-desc {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000000;
+    margin: 0;
+}
+
+.solution-more {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #0076bf;
+}
+
+.solution-more-label {
+    display: block;
+    font-weight: 400;
+}
+
+.solution-arrow {
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    transition: transform 0.25s ease;
+}
+
+.solution-item:hover .solution-arrow {
+    transform: translateX(4px);
+}
+
+/* 스토리 */
+.story {
+    position: relative;
+    width: 100%;
+    height: 922px;
+    background: url('../img/rectangle37.jpg') no-repeat center top;
+    background-size: 1920px 468px;
+}
+
+.story h2 {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #000000;
+    text-align: center;
+    padding-top: 85px;
+    margin: 0;
+}
+
+.story p {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #000000;
+    text-align: center;
+    padding-top: 18px;
+    margin: 0 0 61px 0;
+}
+
+.story-video {
+    position: relative;
+    width: min(932px, 90%);
+    margin: 0 auto;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.story-video > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+}
+
+.story-video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    flex: 0 0 166px;
+    width: 166px;
+    height: 166px;
+    aspect-ratio: 1;
+    place-items: center;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgb(0 0 0 / 42%);
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+.story-video-play svg {
+    display: block;
+    width: 111px;
+    height: 111px;
+    flex: 0 0 111px;
+    fill: #ffffff;
+}
+
+.story-video:hover > img {
+    transform: scale(1.04);
+}
+
+.story-video:hover .story-video-play {
+    transform: translate(-50%, -50%) scale(1.08);
+    background: rgb(0 0 0 / 52%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .visual .sub-text,
+    .visual .main-title,
+    .visual .sub-title,
+    .visual .desc-text,
+    .category .item img,
+    .best-item .img-box img,
+    .view-btn a,
+    .solution-img img,
+    .solution-arrow {
+        animation: none;
+        transition: none;
+    }
+
+    .story-video > img,
+    .story-video-play {
+        transition: none;
+    }
+}
+
+@keyframes hero-text-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* 리뷰 */
+.review {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 79px 0 177px;
+}
+
+.review h2 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+    margin: 0;
+}
+
+.review-list {
+    width: 100%;
+    max-width: 1720px;
+    margin: 75px auto 0;
+    padding: 0 100px 80px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.review-item {
+    width: 320px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.review-visual {
+    width: 320px;
+    height: 320px;
+    border-radius: 20px;
+    background-color: #d9d9d9;
+}
+
+.review-body {
+    padding-top: 18px;
+}
+
+.review-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 129px;
+    height: 25px;
+    margin-bottom: 16px;
+}
+
+.star-icon {
+    width: 18px;
+    height: 18px;
+    fill: #f28a1a;
+}
+
+.review-text {
+    width: 320px;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: #000000;
+    margin: 0;
+    min-height: 37px;
+}
+
+.review-meta {
+    margin-top: 12px;
+}
+
+.review-author {
+    display: block;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #737373;
+}
+
+.review-product {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid #bcbcbc;
+}
+
+.product-thumb {
+    width: 60px;
+    height: 60px;
+    background-color: #d9d9d9;
+    flex-shrink: 0;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.product-name {
+    font-size: 20px;
+    line-height: 1.4;
+    color: #000000;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.product-review-count {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #737373;
+    margin-top: 4px;
+}

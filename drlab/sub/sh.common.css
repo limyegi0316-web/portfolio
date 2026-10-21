@@ -1,0 +1,226 @@
+header {
+    width:100%;
+    max-width: 1920px;
+    position: relative;
+    margin: 0 auto;
+    height: 100px;
+    padding: 0 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+}
+/* 로고 영역 */
+header .logo img {
+    height: 63px; /* 로고 이미지 크기에 맞게 조절 */
+    object-fit: contain;
+}
+
+/* 네비게이션(GNB) 영역 */
+header .gnb ul {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+header .gnb {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+header .gnb ul li a {
+    position: relative;
+    display: block;
+    padding: 20px;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* 서브페이지 현재 메뉴 표시 */
+header .gnb ul li.is-active a::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    bottom: -7px;
+    left: 10px;
+    height: 3px;
+    background-color: #159ce8;
+}
+
+/* 우측 아이콘 영역 */
+header .icon {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 검색 입력창 스타일 (이미지 속 검색바 형태) */
+header .search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+header .search-box input {
+    width: 127px;
+    height: 34px;
+    border: none;
+    border-bottom: 2px solid #111111;
+    outline: none;
+    background: transparent;
+}
+
+/* 검색 아이콘 a 태그 위치 고정 */
+header .search-box a {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%); /* 수직 중앙 정렬 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* --- 개별 아이콘 크기 지정 (예시) --- */
+
+/* 검색 아이콘 크기 (피그마 기준 27px로 설정) */
+header .icon-search img {
+    width: 27px;
+    height: 27px;
+    object-fit: contain;
+}
+
+/* 마이페이지 아이콘 크기 (예시: 24px x 26px) */
+header .icon-mypage img {
+    width: 29px;
+    height: 29px;
+    object-fit: contain;
+}
+
+/* 장바구니 아이콘 크기 (예시: 22px x 24px) */
+header .icon-cart img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* --- 공통 스타일 (모든 아이콘 이미지에 적용) --- */
+header .icons a img {
+    /* 개별 설정된 너비/높이를 따르되, 비율 유지 */
+    display: block; 
+}
+
+/* 푸터 */
+.footer {
+    width: 100%;
+    background-color: #f3faff;
+}
+
+.footer-inner {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 452px;
+    margin: 0 auto;
+    padding: 72px 0 51px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 34px;
+}
+
+.footer-brand {
+    width: 173px;
+    padding-top: 0;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.footer-logo img {
+    display: block;
+    width: 173px;
+    height: auto;
+}
+
+.footer-columns {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; /* 추가: 회사소개/고객센터는 왼쪽에 두고, 카피라이트는 맨 오른쪽 끝으로 보냄 */
+    position: relative; /* 위치 기준점 설정 */
+}
+
+.footer-block {
+    color: #000000;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.footer-company {
+    max-width: 465px;
+}
+
+.footer-customer {
+    min-width: 222px;
+    margin-left:-430px;
+}
+
+.footer-line {
+    margin: 0;
+
+}
+.footer-line1, 
+.footer-line2 {
+    font-weight: 500;
+
+}
+
+.footer-title {
+    font-weight: 500;
+}
+
+.footer-label {
+    font-weight: 500;
+}
+
+.footer-sns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    width: 170px;
+    padding-top: 10px;
+}
+
+.sns-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sns-icon img {
+    display: block;
+}
+
+.footer-copy {
+    /* position: absolute; 지우기 혹은 수정 */
+    align-self: flex-end; /* 세로축 기준 아래쪽 정렬 */
+    margin: 0;
+    color: #737373;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+
